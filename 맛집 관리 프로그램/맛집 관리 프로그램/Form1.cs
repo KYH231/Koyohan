@@ -199,5 +199,33 @@ namespace 맛집_관리_프로그램
                 }
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Form2 _Form = new Form2(this);
+            _Form.ShowDialog();
+
+            if (!m_blLoginCheck) this.Close();
+            this.KeyPreview = true; // KeyPreview 속성을 true로 설정하여 폼에서 키 이벤트를 처리할 수 있도록 함
+            this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.Z && e.Handled == false)
+            {
+                e.Handled = true; // 키 이벤트 처리 완료
+
+                if (deletedStack.Count > 0)
+                {
+                    ListViewItem popedItem = deletedStack.Pop();
+                    listView1.Items.Add(popedItem);
+
+                }
+                else
+                {
+                    MessageBox.Show("더 이상 삭제한 항목이 없습니다.");
+                }
+            }
     }
 }
