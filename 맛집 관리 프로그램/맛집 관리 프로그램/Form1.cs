@@ -116,5 +116,28 @@ namespace 맛집_관리_프로그램
             textBox4.Clear();
             textBox5.Clear();
         }
+        private Stack<ListViewItem> deletedStack = new Stack<ListViewItem>();
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("선택하신 항목이 삭제됩니다.\r계속 하시겠습니다?", "항목 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (listView1.SelectedItems.Count > 0)
+                {
+                    int index = listView1.FocusedItem.Index;
+
+                    ListViewItem deletedItem = listView1.Items[index].Clone() as ListViewItem;// 
+                    deletedStack.Push(deletedItem); // 삭제한 항목 스텍에 푸쉬 // 수정자 - 박정호
+
+                    listView1.Items.RemoveAt(index);
+
+                    MessageBox.Show("삭제되었습니다.");
+                }
+                else
+                {
+                    MessageBox.Show("선택된 항목이 없습니다.");
+                }
+            }
+        }
     }
 }
