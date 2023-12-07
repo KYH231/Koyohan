@@ -59,5 +59,19 @@ namespace 맛집_관리_프로그램
                 textBox2.PasswordChar = '\0';
             }
         }
+
+        private void tb1_Leave(object sender, EventArgs e)
+        {
+            if (tb1.Text == "") tb1.Text = "아이디를 입력 해주세요.";
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "비밀번호를 입력 해주세요.";
+                textBox2.PasswordChar = '\0';
+            }
+        }
     }
 }
