@@ -56,6 +56,7 @@
             this.textBox2.Size = new System.Drawing.Size(241, 21);
             this.textBox2.TabIndex = 7;
             this.textBox2.Click += new System.EventHandler(this.textBox2_Click);
+            this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyUp);
             this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // tb1
@@ -66,6 +67,7 @@
             this.tb1.Size = new System.Drawing.Size(241, 21);
             this.tb1.TabIndex = 8;
             this.tb1.Click += new System.EventHandler(this.tb1_Click);
+            this.tb1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tb1_KeyUp);
             this.tb1.Leave += new System.EventHandler(this.tb1_Leave);
             // 
             // label2
