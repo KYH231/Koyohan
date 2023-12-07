@@ -95,5 +95,18 @@ namespace 맛집_관리_프로그램
 
             MessageBox.Show("정보가 변경되었습니다.");
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listView1.SelectedItems[0];
+                textBox1.Text = selectedItem.SubItems[0].Text;
+                textBox2.Text = selectedItem.SubItems[1].Text;
+                textBox3.Text = selectedItem.SubItems[2].Text;
+                textBox4.Text = selectedItem.SubItems[3].Text;
+                textBox5.Text = selectedItem.SubItems[4].Text;
+            }
+        }
     }
 }
