@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -227,5 +228,37 @@ namespace 맛집_관리_프로그램
                     MessageBox.Show("더 이상 삭제한 항목이 없습니다.");
                 }
             }
+        }
+
+        private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (listView1.Sorting == SortOrder.Ascending)//오름차순 정렬
+                listView1.Sorting = SortOrder.Descending;//내림차순 정렬
+            else
+                listView1.Sorting = SortOrder.Ascending;
+
+            listView1.ListViewItemSorter = new ListViewItemComparer(e.Column, listView1.Sorting);
+        }
+
+        //비교 정렬을 위한  IComparer 인터페이스
+        public class ListViewItemComparer : IComparer
+        {
+            private int col; // 컬럼 정보
+            private SortOrder order; // (오름,내림)차순 정렬 결정 값 
+
+            public ListViewItemComparer(int column, SortOrder order)
+            {
+                col = column;
+                this.order = order;
+            }
+            public int Compare(object x, object y)
+            {
+                int returnVal = -1;
+                returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+                if (order == SortOrder.Descending)
+                    returnVal *= -1;
+                return returnVal;
+            }
+        }
     }
 }
