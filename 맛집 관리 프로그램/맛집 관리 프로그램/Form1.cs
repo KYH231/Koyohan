@@ -74,5 +74,26 @@ namespace 맛집_관리_프로그램
                     textBox4.Focus();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("수정할 항목을 선택해 주세요.");
+                return;
+            }
+
+            ListViewItem selectedItem = listView1.SelectedItems[0];
+            selectedItem.SubItems[0].Text = textBox1.Text;
+            selectedItem.SubItems[1].Text = textBox2.Text;
+            selectedItem.SubItems[2].Text = textBox3.Text;
+            selectedItem.SubItems[3].Text = textBox4.Text;
+            selectedItem.SubItems[4].Text = textBox5.Text;
+
+            // 입력 필드를 지웁니다
+            ClearTextBoxes();
+
+            MessageBox.Show("정보가 변경되었습니다.");
+        }
     }
 }
