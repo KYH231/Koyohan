@@ -108,5 +108,13 @@ namespace 맛집_관리_프로그램
                 textBox5.Text = selectedItem.SubItems[4].Text;
             }
         }
+        private void ClearTextBoxes()
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+        }
     }
 }
