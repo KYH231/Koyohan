@@ -260,5 +260,30 @@ namespace 맛집_관리_프로그램
                 return returnVal;
             }
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+
+            string selected = comboBox1.SelectedItem.ToString();
+
+            if (selected != "음식 종류")
+            {
+                foreach (ListViewItem item in allItems)
+                {
+                    if (item.SubItems[3].Text == selected)
+                    {
+                        listView1.Items.Add((ListViewItem)item.Clone());
+                    }
+                }
+            }
+            else // '음식 종류'를 선택한 경우
+            {
+                foreach (ListViewItem item in allItems)
+                {
+                    listView1.Items.Add((ListViewItem)item.Clone());
+                }
+            }
+        }
     }
 }
