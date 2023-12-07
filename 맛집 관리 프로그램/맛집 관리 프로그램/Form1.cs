@@ -176,5 +176,14 @@ namespace 맛집_관리_프로그램
                 }
             }
         }
+
+        private void 되돌리_Click(object sender, EventArgs e)
+        {
+            foreach (var item in deletedItems)
+            {
+                listView1.Items.Add(item); // 삭제된 항목을 다시 ListView에 추가
+            }
+            deletedItems.Clear(); // 삭제된 항목을 삭제합니다.
+        }
     }
 }
