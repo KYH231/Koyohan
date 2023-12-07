@@ -97,5 +97,17 @@ namespace 맛집_관리_프로그램
                 }
             }
         }
+
+        private void tb1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+                e.SuppressKeyPress = true;
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+                e.SuppressKeyPress = true;
+        }
     }
 }
