@@ -139,5 +139,6 @@ namespace 맛집_관리_프로그램
                 }
             }
         }
+        private List<ListViewItem> deletedItems = new List<ListViewItem>();
     }
 }
