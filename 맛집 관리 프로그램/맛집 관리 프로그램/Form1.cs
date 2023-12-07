@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -140,5 +141,40 @@ namespace 맛집_관리_프로그램
             }
         }
         private List<ListViewItem> deletedItems = new List<ListViewItem>();
+
+        private void 검색_Click(object sender, EventArgs e)
+        {
+            string 이름 = textBox6.Text;
+
+            foreach (ListViewItem 가게이름 in listView1.Items)
+            {
+                ListViewItem.ListViewSubItemCollection subItem = 가게이름.SubItems; // 리스트뷰 가게이름 가져오기
+
+                if (subItem[0].Text == 이름)
+                {
+                    if (MessageBox.Show("가게이름\t전화번호\t주소\t종류\t메모\n" +
+                        subItem[0].Text + "\t" + subItem[1].Text + "\t" + subItem[2].Text + "\t" + subItem[3].Text + "\t" + subItem[4].Text + "\n" +
+                        "네이버에 검색하시겠습니까?",
+                        subItem[0].Text + " 검색 결과", MessageBoxButtons.YesNo) == DialogResult.Yes) // 메세지박스 YES == 네이버에 해당 가게이름 검색
+                    {
+                        Process.Start("https://map.naver.com/p/search/" + subItem[0].Text);
+                    }
+                }
+                else
+                {
+                    if (MessageBox.Show("검색 결과가 없습니다.", "오류") == DialogResult.OK)
+                        textBox6.Focus();
+                }
+            }
+            foreach (ListViewItem 가게이름 in listView1.Items)
+            {
+
+                if (!가게이름.Text.Contains(이름))
+                {
+                    listView1.Items.Remove(가게이름);
+                    deletedItems.Add(가게이름);
+                }
+            }
+        }
     }
 }
