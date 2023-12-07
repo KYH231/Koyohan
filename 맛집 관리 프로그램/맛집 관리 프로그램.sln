@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "맛집 관리 프로그램", "맛집 관리 프로그램\맛집 관리 프로그램.csproj", "{7B410830-7DE0-44FA-A650-E1872B4C4D18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEEK03_01", "WEEK03_01\WEEK03_01.csproj", "{A2CA22F4-B1AF-4C23-987D-035C3B890E45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7B410830-7DE0-44FA-A650-E1872B4C4D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B410830-7DE0-44FA-A650-E1872B4C4D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B410830-7DE0-44FA-A650-E1872B4C4D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2CA22F4-B1AF-4C23-987D-035C3B890E45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2CA22F4-B1AF-4C23-987D-035C3B890E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2CA22F4-B1AF-4C23-987D-035C3B890E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2CA22F4-B1AF-4C23-987D-035C3B890E45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
