@@ -59,5 +59,55 @@ namespace 맛집_관리_프로그램
                 textBox2.PasswordChar = '\0';
             }
         }
+
+        private void tb1_Leave(object sender, EventArgs e)
+        {
+            if (tb1.Text == "") tb1.Text = "아이디를 입력 해주세요.";
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "비밀번호를 입력 해주세요.";
+                textBox2.PasswordChar = '\0';
+            }
+        }
+
+        private void tb1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) bt_OK();
+            else if (e.KeyData == (Keys.Shift | Keys.Tab))
+            {
+                tb1.Focus();
+
+                ID_click();
+            }
+        }
+
+        private void textBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                textBox2.Focus();
+                if (textBox2.Text == "비밀번호를 입력 해주세요.")
+                {
+                    textBox2.Text = "";
+                    textBox2.PasswordChar = '*';
+                }
+            }
+        }
+
+        private void tb1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+                e.SuppressKeyPress = true;
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+                e.SuppressKeyPress = true;
+        }
     }
 }
